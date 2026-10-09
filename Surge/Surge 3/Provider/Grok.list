@@ -1,0 +1,42 @@
+# Grok Suite: Grok, xAI and Grok Bot
+# Place before Twitter/X rules (blackmatrix7 Twitter.list also contains DOMAIN-SUFFIX,grok.com)
+# Route to a US / JP / SG node; api.x.ai is blocked in mainland China and xAI publishes no region list
+# Updated: 2026-10-09
+
+# > Grok
+# https://cursor.com/help/troubleshooting/sign-in-domains
+DOMAIN,grok.x.com
+DOMAIN-SUFFIX,grok.com
+DOMAIN-SUFFIX,grokipedia.com
+DOMAIN-SUFFIX,grokusercontent.com
+
+# > Grok (single unofficial source)
+# https://github.com/viewer12/OverseasAI.list
+DOMAIN-SUFFIX,grok-sandbox.com
+DOMAIN-SUFFIX,groksupport.com
+DOMAIN-SUFFIX,groktpcontent.com
+
+# > xAI
+# https://docs.x.ai/developers/advanced-api-usage/regions
+DOMAIN-SUFFIX,x.ai
+
+# > Shared sign-in (Grok / Grok Bot / Cursor)
+# Old fallback authenticator.cursor.sh retires on 2026-10-30
+# https://cursor.com/help/troubleshooting/sign-in-domains
+DOMAIN,accounts.spacex.ai
+DOMAIN,accounts.x.ai
+DOMAIN,auth.grok.com
+DOMAIN,auth.grokipedia.com
+DOMAIN,auth.grokusercontent.com
+DOMAIN,auth.x.ai
+DOMAIN-SUFFIX,spacex.ai
+
+# > Grok Bot / Cursor
+# https://cursor.com/docs/grok-bot/proxies.md
+# https://cursor.com/docs/enterprise/network-configuration
+DOMAIN,anysphere-binaries.s3.us-east-1.amazonaws.com
+DOMAIN-SUFFIX,cursor-cdn.com
+DOMAIN-SUFFIX,cursor.com
+DOMAIN-SUFFIX,cursor.sh
+DOMAIN-SUFFIX,cursorapi.com
+DOMAIN-SUFFIX,cursorvm.com
