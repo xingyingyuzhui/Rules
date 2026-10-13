@@ -1,0 +1,36 @@
+# Meta AI Suite: Meta AI, Model API, Llama and Muse
+# Place before Meta / Facebook / Instagram and other AI rules
+# Shared login hosts below also serve non-AI Meta products
+# Shared Facebook / Instagram APIs and CDNs are covered by Meta.list
+# Updated: 2026-10-13
+# Research and limitations: ../../../docs/Meta.md (repository root)
+
+# > Meta AI web / App, Model API and developer console
+# https://ai.meta.com/meta-ai/
+# https://dev.meta.ai/docs/overview (api.meta.ai / dev.meta.ai)
+DOMAIN-SUFFIX,meta.ai
+DOMAIN-SUFFIX,ai.meta.com
+
+# > Llama
+# https://www.llama.com/
+DOMAIN-SUFFIX,llama.com
+
+# > Muse
+# https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/
+DOMAIN-SUFFIX,muse.ai
+
+# > Muse VM infrastructure (community-maintained domain evidence)
+# https://github.com/v2fly/domain-list-community/blob/c6adacf29cc4fb05e04651fcf03e00989ef9f797/data/meta
+# No public official network allowlist was found for this domain
+DOMAIN-SUFFIX,metaaivm.com
+
+# > AI Studio legacy entry point
+# https://about.fb.com/news/2024/07/create-your-own-custom-ai-with-ai-studio/
+# New character creation/editing ended on 2026-08-10; existing chats remain
+DOMAIN,aistudio.instagram.com
+
+# > Shared Meta account sign-in / Accounts Center
+# https://auth.meta.com/login
+# https://accountscenter.meta.com/ (redirects to auth.meta.com)
+DOMAIN,auth.meta.com
+DOMAIN,accountscenter.meta.com

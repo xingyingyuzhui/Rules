@@ -1,0 +1,69 @@
+# Meta Suite: Meta AI, Facebook, Messenger, Instagram, Threads, WhatsApp and Quest
+# Includes Meta AI domains; place MetaAI.list first when using a separate AI policy
+# Curated service / CDN domains, not a complete list of Meta-owned domains or IPs
+# Shared domains cannot separate in-app AI requests from ordinary social traffic
+# Updated: 2026-10-13
+# Research and limitations: ../../../docs/Meta.md (repository root)
+# Community source snapshots:
+# https://github.com/v2fly/domain-list-community/tree/c6adacf29cc4fb05e04651fcf03e00989ef9f797/data
+# https://github.com/MetaCubeX/meta-rules-dat/blob/83c8208bdfae92b1caaa29745f51f233b6f1847e/geo/geosite/meta.list
+# https://github.com/blackmatrix7/ios_rule_script/tree/19c84682407580056d0ae2f27e406f70db679de1/rule/Surge
+
+# > Meta accounts / corporate sites / community
+DOMAIN-SUFFIX,meta.com
+DOMAIN-SUFFIX,atmeta.com
+
+# > Meta AI / Model API / Llama / Muse (see MetaAI.list for individual sources)
+DOMAIN-SUFFIX,meta.ai
+DOMAIN-SUFFIX,llama.com
+DOMAIN-SUFFIX,muse.ai
+DOMAIN-SUFFIX,metaaivm.com
+
+# > Facebook and short links
+DOMAIN-SUFFIX,facebook.com
+DOMAIN-SUFFIX,facebook.net
+DOMAIN-SUFFIX,fb.com
+DOMAIN-SUFFIX,fb.me
+DOMAIN-SUFFIX,fb.gg
+DOMAIN-SUFFIX,fb.watch
+DOMAIN-SUFFIX,fbwat.ch
+
+# > Shared static resources / media / attachments / network infrastructure
+# static.xx.fbcdn.net is also referenced by the public auth.meta.com login page
+DOMAIN-SUFFIX,fbcdn.com
+DOMAIN-SUFFIX,fbcdn.net
+DOMAIN-SUFFIX,fbsbx.com
+DOMAIN-SUFFIX,fbsbx.net
+DOMAIN-SUFFIX,tfbnw.net
+# Match this Facebook-specific Akamai hostname only
+DOMAIN,fbcdn-a.akamaihd.net
+
+# > Messenger
+DOMAIN-SUFFIX,messenger.com
+DOMAIN-SUFFIX,fbmessenger.com
+DOMAIN-SUFFIX,m.me
+
+# > Instagram (also covers aistudio.instagram.com)
+DOMAIN-SUFFIX,instagram.com
+DOMAIN-SUFFIX,cdninstagram.com
+DOMAIN-SUFFIX,ig.me
+DOMAIN-SUFFIX,igcdn.com
+DOMAIN-SUFFIX,igsonar.com
+DOMAIN-SUFFIX,instagr.am
+
+# > Threads: keep both the current domain and the legacy redirect
+# https://about.fb.com/news/2025/04/new-features-threads-web-experience/
+DOMAIN-SUFFIX,threads.com
+DOMAIN-SUFFIX,threads.net
+
+# > WhatsApp (graph.facebook.com is already covered by facebook.com)
+DOMAIN-SUFFIX,whatsapp.com
+DOMAIN-SUFFIX,whatsapp.net
+DOMAIN-SUFFIX,whatsappbrand.com
+DOMAIN-SUFFIX,wa.me
+
+# > Quest / Oculus service and CDN domains
+DOMAIN-SUFFIX,oculus.com
+DOMAIN-SUFFIX,oculuscdn.com
+DOMAIN-SUFFIX,oculusvr.com
+DOMAIN-SUFFIX,ocul.us
