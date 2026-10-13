@@ -45,6 +45,8 @@
 
 所有新规则仅使用 `DOMAIN` / `DOMAIN-SUFFIX`，不含策略名称。格式与匹配语义参照 [Surge 域名规则](https://manual.nssurge.com/rules/domain.html)及[外部 RULE-SET 文档](https://manual.nssurge.com/rules/ruleset.html)。
 
+客户端引用语法需要分别配置：Loon 使用 `[Remote Rule]` 中的订阅 URL 与 `policy=`，参照 [Loon 官方配置示例](https://github.com/Loon0x00/LoonExampleConfig/blob/master/example.conf)。[Loon 官方优先级说明](https://nsloon.app/docs/Rule/)明确本地规则 > 插件规则 > 订阅规则，因此仅调整订阅之间的顺序不能覆盖本地和插件中的域名匹配。
+
 ## 分流设计与边界
 
 `MetaAI.list` 含 8 条规则，`Meta.list` 含 38 条规则。后者可以单独使用，覆盖前者所有匹配范围；两个列表一起使用时，AI 列表必须先于 Meta 列表。跨文件的覆盖是为了支持不同策略组，单个文件内不重复添加已被后缀覆盖的子域。
