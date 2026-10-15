@@ -27,6 +27,36 @@ https://raw.githubusercontent.com/xingyingyuzhui/Rules/main/Surge/Surge%203/Prov
 - 2026-10-30 起 Cursor / Grok Bot 旧登录回退页下线，必须能访问 `accounts.x.ai` 与 `accounts.spacex.ai`。
 - 可选：同时使用 Tailscale 时，可加 `IP-CIDR,100.64.0.0/10,DIRECT,no-resolve`。
 
+## X / Twitter
+
+`Twitter.list`：覆盖 X / Twitter 主站、登录与 API、图片和视频 CDN、短链接，并保留社区清单中的直播及旧入口基础设施域名。
+
+Surge / Shadowrocket（添加到现有 `[Rule]`；同时使用 Grok 时按以下顺序）：
+
+```
+RULE-SET,https://raw.githubusercontent.com/xingyingyuzhui/Rules/main/Surge/Surge%203/Provider/Grok.list,Grok
+RULE-SET,https://raw.githubusercontent.com/xingyingyuzhui/Rules/main/Surge/Surge%203/Provider/Twitter.list,Twitter
+```
+
+Loon（添加到现有 `[Remote Rule]`，使用相同顺序）：
+
+```
+https://raw.githubusercontent.com/xingyingyuzhui/Rules/main/Surge/Surge%203/Provider/Grok.list,policy=Grok,tag=Grok,enabled=true
+https://raw.githubusercontent.com/xingyingyuzhui/Rules/main/Surge/Surge%203/Provider/Twitter.list,policy=Twitter,tag=Twitter,enabled=true
+```
+
+`Grok`、`Twitter` 需替换为实际存在的策略名称；已有 Grok 订阅无需重复添加。只需 X 分流时，仅添加 `Twitter.list` 对应的一行。Loon 通过订阅规则界面添加时，只填写 URL 并选择策略。
+
+注意：
+
+- **`Grok.list` 放在 `Twitter.list` 前面**：`x.com` 后缀也会匹配 `grok.x.com`；本列表不额外纳入 `grok.com`、`x.ai` 或 Cursor 域名。
+- X 内置 Grok 若使用共享的 `x.com` API 或 `twimg.com` CDN，仍会跟随 Twitter 策略；域名规则无法按请求用途区分。需要相同出口时，将两个策略组选为同一具体节点。
+- Loon 本地和插件规则优先于订阅规则，单纯调整订阅顺序无法覆盖它们，详见[官方匹配说明](https://nsloon.app/docs/Rule/)。需要保留的细粒度广告拦截规则应先于此宽泛域名列表。
+- 仅使用域名规则，未加入宽泛 `twitter` 关键词、整个 Fastly / AWS 域名、ASN 或历史 IP 段。直接连接 IP 的通话、外部登录 / 验证服务及短链接跳转后的第三方网站，仍需其他规则或最终策略处理。
+- 未做客户端导入及登录后实测；直播与旧入口域名属于社区维护证据，不代表对应服务仍可用，也不承诺完整 App / Chat / Spaces 通话覆盖。
+
+调查日期：2026-10-16。域名依据、固定上游版本和验证边界见 [X / Twitter 调查记录](docs/Twitter.md)。
+
 ## Meta AI / Meta Suite
 
 - `MetaAI.list`：Meta AI 网页 / App、Model API 与开发者控制台、Llama、Muse、AI Studio 旧入口，以及共享 Meta 账号登录和 Accounts Center。
@@ -72,6 +102,7 @@ https://raw.githubusercontent.com/xingyingyuzhui/Rules/main/Surge/Surge%203/Prov
 
 ## 来源
 
+- X / Twitter：官方 [OAuth 2.0](https://docs.x.com/fundamentals/authentication/oauth-2-0/authorization-code)、[数据字典](https://docs.x.com/x-api/fundamentals/data-dictionary)、[短链接说明](https://help.x.com/en/using-x/url-shortener)；固定社区版本见 [X / Twitter 调查记录](docs/Twitter.md)。
 - Cursor 官方：[sign-in domains](https://cursor.com/help/troubleshooting/sign-in-domains)、[network configuration](https://cursor.com/docs/enterprise/network-configuration)、[Grok Bot proxies](https://cursor.com/docs/grok-bot/proxies.md)
 - xAI 官方：[Regions](https://docs.x.ai/developers/advanced-api-usage/regions)
 - 社区规则集：dler-io、v2fly/domain-list-community、MetaCubeX/meta-rules-dat、Loyalsoldier/surge-rules、SukkaW、ACL4SSR、viewer12/OverseasAI.list

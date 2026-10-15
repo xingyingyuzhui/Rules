@@ -1,0 +1,37 @@
+# X / Twitter: web, App, API, media and community-listed live infrastructure
+# Place Grok.list before this list: DOMAIN-SUFFIX,x.com also matches grok.x.com
+# Shared X API / CDN traffic cannot be separated into Grok and social by domain
+# Updated: 2026-10-16
+# Research, pinned sources and limitations: ../../../docs/Twitter.md
+
+# > Main sites, sign-in, API, help and developer console
+# https://docs.x.com/fundamentals/authentication/oauth-2-0/authorization-code
+# https://docs.x.com/x-api/fundamentals/data-dictionary
+DOMAIN-SUFFIX,x.com
+DOMAIN-SUFFIX,twitter.com
+
+# > Short links and legacy entry points
+# https://help.x.com/en/using-x/url-shortener
+# Legacy domains: community snapshots below; not a statement of service availability
+DOMAIN-SUFFIX,t.co
+DOMAIN-SUFFIX,tweetdeck.com
+DOMAIN-SUFFIX,twttr.com
+
+# > Images, video, static assets and embedded posts
+# Official data dictionary references pbs.twimg.com and video.twimg.com
+# Public x.com HTML also references abs / ton / cdn.syndication.twimg.com
+DOMAIN-SUFFIX,twimg.com
+
+# > Live / legacy video and infrastructure (community evidence)
+# https://github.com/v2fly/domain-list-community/blob/dd4e3c080cee602512768e8109f89fafaa94b8ca/data/twitter
+# https://github.com/blackmatrix7/ios_rule_script/blob/d8363caa2c1e47fb735615316032bed3f475ee57/rule/Surge/Twitter/Twitter.list
+DOMAIN-SUFFIX,periscope.tv
+DOMAIN-SUFFIX,pscp.tv
+DOMAIN-SUFFIX,twvid.com
+DOMAIN-SUFFIX,twitteroauth.com
+DOMAIN-SUFFIX,twitterstat.us
+DOMAIN-SUFFIX,twtrdns.net
+DOMAIN-SUFFIX,twttr.net
+DOMAIN-SUFFIX,cms-twdigitalassets.com
+# Match this Twitter-specific CDN hostname only
+DOMAIN,twitter.map.fastly.net
