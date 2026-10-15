@@ -59,7 +59,7 @@ https://raw.githubusercontent.com/xingyingyuzhui/Rules/main/Surge/Surge%203/Prov
 
 ## Meta AI / Meta Suite
 
-- `MetaAI.list`：Meta AI 网页 / App、Model API 与开发者控制台、Llama、Muse、AI Studio 旧入口，以及共享 Meta 账号登录和 Accounts Center。
+- `MetaAI.list`：Meta AI 网页 / App、Model API 与开发者控制台、Llama、Muse（含 VM 域名与隐私传输端点）、Muse Code 的 API / 启动器、AI Studio 旧入口，以及共享 Meta 账号登录和 Accounts Center / Meta Account。
 - `Meta.list`：包含上述 AI 域名，并补充 Facebook、Messenger、Instagram、Threads、WhatsApp、Meta 账号及 Quest / Oculus 的主要服务与 CDN 域名。
 
 Surge / Shadowrocket（`[Rule]`）：分开设置 AI 与 Meta 策略时，按以下顺序添加；`MetaAI` 和 `Meta` 需替换为配置中实际存在的策略组名称：
@@ -86,10 +86,12 @@ https://raw.githubusercontent.com/xingyingyuzhui/Rules/main/Surge/Surge%203/Prov
 - **Loon 的规则来源优先级为本地规则 > 插件规则 > 订阅规则。** 把订阅移到前面不能覆盖本地或插件中已命中的域名规则，需在请求记录详情中核对命中规则、策略及最终节点。[官方匹配说明](https://nsloon.app/docs/Rule/)
 - **共享服务无法按域名区分 AI 与普通社交流量。** Facebook / Instagram 登录、Graph API、图片和附件可能使用 `facebook.com`、`instagram.com`、`fbcdn.net`、`fbsbx.com` 等共享域名，由 `Meta.list` 处理；共享 Meta 登录域名则由优先的 `MetaAI.list` 处理。需要相同出口时，将两个策略组选为同一节点；这也会影响其他 Meta 产品的登录与社交流量。
 - 单独引用 `MetaAI.list` 时，仍需已有规则或最终代理策略处理上述共享域名。它不是独立完整的 App 网络白名单，也不能仅靠域名把 WhatsApp / Instagram 内置 AI 单独分流。
+- Muse Code 的官方安装 / 更新启动器使用 `dev.meta.ai`、`api.meta.ai` 和 `auth.meta.com`，安装包下载主机为共享的 `lookaside.facebook.com`，由 `Meta.list` 覆盖。只订阅 AI 列表时需另有代理规则处理该下载主机；本次仅检查启动器文本，未执行安装。
+- Muse 公开脚本配置的两个 `meta-ohttp-*-prod.fastly-edge.com` 主机采用精确匹配；这些 Meta 隐私端点也可能承载其他产品流量，并非 AI 专用域名。不应将整个 `fastly-edge.com` 加入 AI 策略。
 - 地区与功能开放情况以官方当前说明为准，网页、App、语音、眼镜、Muse 和 Model API 的范围可能不同。规则只负责网络分流，不保证账号或功能可用；Model API 有独立的[地区使用政策](https://dev.meta.ai/legal/geographic-use-policy)。
 - 新规则仅使用域名匹配，未加入整个 Meta ASN、过时 IP 段或整个 Akamai / AWS 网段；对直接连接 IP 的通话等流量不提供完整覆盖。需要保留的细粒度广告拦截规则应放在宽泛的 `Meta.list` 之前。
 
-调查日期：2026-10-13。域名来源、上游版本、纳入理由和验证边界见 [Meta 调查记录](docs/Meta.md)。
+初次调查：2026-10-13；最近复查：2026-10-16。域名来源与分流设计见 [Meta 调查记录](docs/Meta.md)；本次新增端点、官网脚本证据和 Muse Code 依赖见 [Muse / Meta AI 复查记录](docs/Meta-2026-10-16.md)。
 
 ### Loon 网页登录后提示地区不可用
 

@@ -2,7 +2,7 @@
 # Includes Meta AI domains; place MetaAI.list first when using a separate AI policy
 # Curated service / CDN domains, not a complete list of Meta-owned domains or IPs
 # Shared domains cannot separate in-app AI requests from ordinary social traffic
-# Updated: 2026-10-13
+# Updated: 2026-10-16
 # Research and limitations: ../../../docs/Meta.md (repository root)
 # Community source snapshots:
 # https://github.com/v2fly/domain-list-community/tree/c6adacf29cc4fb05e04651fcf03e00989ef9f797/data
@@ -18,6 +18,12 @@ DOMAIN-SUFFIX,meta.ai
 DOMAIN-SUFFIX,llama.com
 DOMAIN-SUFFIX,muse.ai
 DOMAIN-SUFFIX,metaaivm.com
+
+# > Shared Meta privacy transport, configured by the Muse public web bundle
+# Exact hosts only; do not match the entire Fastly service
+# Sources and limits: ../../../docs/Meta-2026-10-16.md
+DOMAIN,meta-ohttp-config-prod.fastly-edge.com
+DOMAIN,meta-ohttp-relay-prod.fastly-edge.com
 
 # > Facebook and short links
 DOMAIN-SUFFIX,facebook.com
