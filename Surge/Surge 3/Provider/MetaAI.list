@@ -1,11 +1,11 @@
-# Meta AI Suite: Meta AI, Model API, Llama and Muse
+# Meta AI Suite: Meta AI, Model API, Llama, Muse and Muse Code
 # Place before Meta / Facebook / Instagram and other AI rules
 # Shared login hosts below also serve non-AI Meta products
 # Shared Facebook / Instagram APIs and CDNs are covered by Meta.list
-# Updated: 2026-10-13
+# Updated: 2026-10-16
 # Research and limitations: ../../../docs/Meta.md (repository root)
 
-# > Meta AI web / App, Model API and developer console
+# > Meta AI web / App, Model API, Muse Code API / launcher and developer console
 # https://ai.meta.com/meta-ai/
 # https://dev.meta.ai/docs/overview (api.meta.ai / dev.meta.ai)
 DOMAIN-SUFFIX,meta.ai
@@ -19,10 +19,17 @@ DOMAIN-SUFFIX,llama.com
 # https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/
 DOMAIN-SUFFIX,muse.ai
 
-# > Muse VM infrastructure (community-maintained domain evidence)
+# > Muse VM infrastructure (official public web bundle and community evidence)
+# Public Muse bundle parses VM hostnames under .metaaivm.com
+# https://github.com/xingyingyuzhui/Rules/blob/main/docs/Meta-2026-10-16.md
 # https://github.com/v2fly/domain-list-community/blob/c6adacf29cc4fb05e04651fcf03e00989ef9f797/data/meta
-# No public official network allowlist was found for this domain
 DOMAIN-SUFFIX,metaaivm.com
+
+# > Muse privacy transport (exact hosts from the official public web bundle)
+# Shared Meta privacy endpoints may also carry non-AI traffic
+# See docs/Meta-2026-10-16.md for source URLs, hashes and validation limits
+DOMAIN,meta-ohttp-config-prod.fastly-edge.com
+DOMAIN,meta-ohttp-relay-prod.fastly-edge.com
 
 # > AI Studio legacy entry point
 # https://about.fb.com/news/2024/07/create-your-own-custom-ai-with-ai-studio/

@@ -1,0 +1,75 @@
+{
+  "investigation_date": "2026-10-16",
+  "evidence_type": "Unauthenticated public resources; static code/configuration inspection, not a runtime network trace",
+  "entry_point": "https://muse.ai/",
+  "sources": [
+    {
+      "url": "https://muse.ai/_next/static/chunks/0kb8ruz4wfgq6.js?dpl=dpl_Cy8Ah448B5pRurUx9Koj4UaxzXRP",
+      "sha256": "961aa57597eb5d3d9505c82d8a44f16e50340f0d4b69bd0ce72fc0e734197619",
+      "bytes": 67598,
+      "purpose": "Native-provider SSO broker origin allowlist; compatibility evidence only"
+    },
+    {
+      "url": "https://muse.ai/_next/static/chunks/0m0oak4tadgz8.js?dpl=dpl_Cy8Ah448B5pRurUx9Koj4UaxzXRP",
+      "sha256": "c94214f7ab8a6611c6160fe10c88ce68cc2762544f1716879bbb13dde5b0f903",
+      "bytes": 73679,
+      "purpose": "getHatchPrivacyTransportEndpoints: config GET and relay POST URLs"
+    },
+    {
+      "url": "https://muse.ai/_next/static/chunks/2zhk5ne_w7cbp.js?dpl=dpl_Cy8Ah448B5pRurUx9Koj4UaxzXRP",
+      "sha256": "a024fc027fa52665910de1dfa4d6b62a517be3a3f9febeae9e4175b18720255c",
+      "bytes": 29226,
+      "purpose": "VM hostname parser and production / voice / preview origin constants"
+    },
+    {
+      "url": "https://dev.meta.ai/install.sh",
+      "sha256": "5196d820127a241211c96cf38f0b2e30cff8506a82e9da9508cd5f826632a0ca",
+      "bytes": 9314,
+      "purpose": "Read-only installer text; launcher defaults to api.meta.ai"
+    },
+    {
+      "url": "https://api.meta.ai/muse-launcher.sh",
+      "sha256": "c6db294799a190ca380da274beb3b9c0e160e0da9681a3d364ce8b0e5fa3a4bc",
+      "bytes": 32737,
+      "purpose": "Read-only launcher text; auth.meta.com authentication and lookaside.facebook.com download allowlist"
+    }
+  ],
+  "public_get_checks": [
+    {
+      "requested_host": "production.museai.com",
+      "http_status": 200,
+      "final_host": "fb.okta.com"
+    },
+    {
+      "requested_host": "voice.museai.com",
+      "http_status": 200,
+      "final_host": "fb.okta.com"
+    },
+    {
+      "requested_host": "hatch.ecto1.ai",
+      "http_status": 200,
+      "final_host": "fb.okta.com"
+    },
+    {
+      "requested_host": "hatch.club",
+      "http_status": 200,
+      "final_host": "fb.okta.com"
+    },
+    {
+      "requested_host": "www.hatch.club",
+      "http_status": 200,
+      "final_host": "www.hatch.club"
+    },
+    {
+      "requested_host": "meta-ohttp-config-prod.fastly-edge.com",
+      "http_status": 200,
+      "final_host": "meta-ohttp-config-prod.fastly-edge.com"
+    }
+  ],
+  "limits": [
+    "No scripts were executed or installed",
+    "No account login, chat, voice, inference or OHTTP relay POST was performed",
+    "Compatibility origins that redirected to fb.okta.com SSO were not added to consumer routing rules",
+    "Deployment URLs may expire; hashes identify the bytes inspected"
+  ]
+}

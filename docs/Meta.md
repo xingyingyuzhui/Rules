@@ -1,6 +1,8 @@
 # Meta 规则调查记录
 
-调查日期：2026-10-13。本记录用于解释 `MetaAI.list` 与 `Meta.list` 的域名选择，区分官方服务入口、社区维护的基础设施域名和未做实机验证的部分。
+初次调查日期：2026-10-13；最近复查：2026-10-16。本记录用于解释 `MetaAI.list` 与 `Meta.list` 的域名选择，区分官方服务入口、社区维护的基础设施域名和未做实机验证的部分。
+
+2026-10-16 复查：两个列表均新增 Muse 官网公开脚本明确配置的 OHTTP 主机；`metaaivm.com` 增补官方脚本依据，核查 Muse Code 的 API、登录与共享下载依赖。最新来源、未纳入的兼容主机和验证限制见 [Muse / Meta AI 复查记录](Meta-2026-10-16.md)。以下来源表保留初次调查背景。
 
 ## 官方资料核查
 
@@ -32,7 +34,8 @@
 | 分组 | 保留域名 / 匹配范围 | 依据 |
 | --- | --- | --- |
 | AI 服务 | `meta.ai`、`ai.meta.com`、`llama.com`、`muse.ai` | 官方入口与文档；社区 Meta 集合也收录主要根域名。 |
-| AI 基础设施 | `metaaivm.com` | v2fly 的 `meta` 源清单及 MetaCubeX 集合收录。归入 Muse VM 基础设施是社区证据支持的分类；未找到公开官方网络白名单，不承诺所有子域的具体用途或实际可用性。 |
+| AI 基础设施 | `metaaivm.com` | 初次依据 v2fly / MetaCubeX；2026-10-16 另在 Muse 官网公开脚本发现 VM 主机解析逻辑，见复查记录。仍未取得完整官方网络白名单或实机验证。 |
+| Muse / Meta 隐私传输 | 精确匹配 `meta-ohttp-config-prod.fastly-edge.com`、`meta-ohttp-relay-prod.fastly-edge.com` | 2026-10-16 Muse 官网公开脚本明确配置 GET 配置文件和 POST 转发端点；配置文件未登录 GET 返回 200，未发送转发 POST 或验证实际聊天传输。 |
 | AI Studio / 共享账号 | 精确匹配 `aistudio.instagram.com`、`auth.meta.com`、`accountscenter.meta.com` | 官方公告、公开登录页面及重定向。后两个也服务其他 Meta 产品。 |
 | Meta 主站 / 社区 | `meta.com`、`atmeta.com` | 官方站点与社区 Meta 分类；`meta.com` 同时覆盖账号、企业及商店等服务。 |
 | Facebook / 短链接 | `facebook.com`、`facebook.net`、`fb.com`、`fb.me`、`fb.gg`、`fb.watch`、`fbwat.ch` | v2fly Facebook 与 MetaCubeX 集合。 |
@@ -49,7 +52,7 @@
 
 ## 分流设计与边界
 
-`MetaAI.list` 含 8 条规则，`Meta.list` 含 38 条规则。后者可以单独使用，覆盖前者所有匹配范围；两个列表一起使用时，AI 列表必须先于 Meta 列表。跨文件的覆盖是为了支持不同策略组，单个文件内不重复添加已被后缀覆盖的子域。
+`MetaAI.list` 含 10 条规则，`Meta.list` 含 40 条规则。后者可以单独使用，覆盖前者所有匹配范围；两个列表一起使用时，AI 列表必须先于 Meta 列表。跨文件的覆盖是为了支持不同策略组，单个文件内不重复添加已被后缀覆盖的子域。
 
 AI 列表未加入整个 `facebook.com`、`instagram.com` 或 `fbcdn.net`，这些共享服务由 Meta 列表处理。`graph.facebook.com` 已被 `facebook.com` 覆盖，不能仅凭这个主机认定请求是 AI、WhatsApp 或广告。App 内 AI 与社交功能共用域名时，域名规则无法区分请求用途。
 
