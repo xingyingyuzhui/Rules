@@ -102,6 +102,32 @@ https://raw.githubusercontent.com/xingyingyuzhui/Rules/main/Surge/Surge%203/Prov
 
 在 Loon 请求记录详情中，重点查看 `meta.ai`、`auth.meta.com`、`accountscenter.meta.com`、`facebook.com`、`instagram.com` 和相关共享资源域名。提供诊断信息时仅需域名、命中规则、策略与最终节点，不需要 Cookie、令牌或完整登录 URL。无需为此启用 HTTPS 解密。
 
+## Devin
+
+`Devin.list` 覆盖 Devin 主站、API、登录、CLI 安装与更新域名、交互式会话工具（IDE / 桌面查看器），以及企业租户域名。
+
+Surge / Shadowrocket（添加到现有 `[Rule]`）：
+
+```
+RULE-SET,https://raw.githubusercontent.com/xingyingyuzhui/Rules/main/Surge/Surge%203/Provider/Devin.list,Devin
+```
+
+Loon（添加到现有 `[Remote Rule]`）：
+
+```
+https://raw.githubusercontent.com/xingyingyuzhui/Rules/main/Surge/Surge%203/Provider/Devin.list,policy=Devin,tag=Devin,enabled=true
+```
+
+`Devin` 需替换为实际存在的策略名称。Loon 通过订阅规则界面添加时，填写下面的 URL 并选择策略：
+
+```
+https://raw.githubusercontent.com/xingyingyuzhui/Rules/main/Surge/Surge%203/Provider/Devin.list
+```
+
+将此列表放在综合 AI 规则和最终兜底规则之前。Loon 本地与插件规则优先于订阅规则。
+
+调查日期为 2026-11-09。采用 `devin.ai`、`devinapps.com`、`devinenterprise.com` 三条域名后缀规则，来源及覆盖边界见 [Devin 调查记录](docs/Devin.md)。已检查规则格式，尚未做代理客户端导入及登录后会话实测。
+
 ## 来源
 
 - X / Twitter：官方 [OAuth 2.0](https://docs.x.com/fundamentals/authentication/oauth-2-0/authorization-code)、[数据字典](https://docs.x.com/x-api/fundamentals/data-dictionary)、[短链接说明](https://help.x.com/en/using-x/url-shortener)；固定社区版本见 [X / Twitter 调查记录](docs/Twitter.md)。

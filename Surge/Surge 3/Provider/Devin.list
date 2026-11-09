@@ -1,0 +1,15 @@
+# Devin: web, API, interactive session tools and enterprise hosts
+# Updated: 2026-11-09
+
+# > Web, API, sign-in and CLI distribution
+# https://docs.devin.ai/get-started/devin-intro
+# https://docs.devin.ai/cli/index
+DOMAIN-SUFFIX,devin.ai
+
+# > Interactive IDE and desktop viewer
+# https://docs.devin.ai/enterprise/deployment/overview
+DOMAIN-SUFFIX,devinapps.com
+
+# > Enterprise tenant hosts
+# https://docs.devin.ai/cli/enterprise/system-config
+DOMAIN-SUFFIX,devinenterprise.com
