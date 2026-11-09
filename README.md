@@ -126,7 +126,7 @@ https://raw.githubusercontent.com/xingyingyuzhui/Rules/main/Surge/Surge%203/Prov
 
 将此列表放在综合 AI 规则和最终兜底规则之前。Loon 本地与插件规则优先于订阅规则。
 
-调查日期为 2026-11-09。采用 `devin.ai`、`devinapps.com`、`devinenterprise.com` 三条域名后缀规则，来源及覆盖边界见 [Devin 调查记录](docs/Devin.md)。已检查规则格式，尚未做代理客户端导入及登录后会话实测。
+调查日期为 2026-11-09。采用 `devin.ai`、`devinapps.com`、`devinenterprise.com` 三条域名后缀规则，并补充本机 Devin Desktop 实际连接的 `server.codeium.com`、`unleash.codeium.com`，来源及覆盖边界见 [Devin 调查记录](docs/Devin.md)。已检查规则格式，尚未做代理客户端导入及登录后会话实测。
 
 ## 来源
 

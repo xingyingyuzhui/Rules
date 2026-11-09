@@ -13,3 +13,8 @@ DOMAIN-SUFFIX,devinapps.com
 # > Enterprise tenant hosts
 # https://docs.devin.ai/cli/enterprise/system-config
 DOMAIN-SUFFIX,devinenterprise.com
+
+# > Devin Desktop: observed local agent backend and feature flags
+# Local process connections and Loon records checked on 2026-11-09
+DOMAIN,server.codeium.com
+DOMAIN,unleash.codeium.com
